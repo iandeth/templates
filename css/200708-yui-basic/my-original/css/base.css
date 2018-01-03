@@ -1,0 +1,69 @@
+/* LAYOUTS */
+body {
+    margin: 10px;
+}
+#wrapper {
+    width: 780px;
+    margin: auto;
+}
+#header {
+    margin-bottom: 10px;
+    padding: 20px;
+    background: #999;
+}
+#main {
+    background: #666;
+    margin-right: 260px; /* sidebar width + 10px blank space */
+}
+#main-inner {
+    padding: 20px;
+}
+#sidebar {
+    width: 250px; /* sync with #main margin-right */
+    overflow: hidden;
+    background: #CCC;
+    float: right; /* sync with #main margin */
+}
+#sidebar-inner {
+    padding: 20px;
+}
+#footer {
+    margin-top: 10px;
+    padding: 20px;
+    background: #999;
+}
+
+/* CONTENT DEFINITIONS */
+p {
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+#header h1 {
+    margin: 0;
+    padding: 0;
+    line-height: 110%;
+}
+#header p {
+    margin: 0;
+}
+
+/* div clearing hack */
+.clear:after {
+    content: ".";
+    display: block;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+* html .clear {
+    height: 1%;
+}
+
+/* FOR IE */
+* html body {
+    font-size: 1.20em;
+}
+* html #footer {
+    height: 1%;
+}

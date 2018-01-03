@@ -1,0 +1,69 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>iandeth</title>
+    <link rel="stylesheet" type="text/css" href="css/reset-fonts.css" >
+    <link rel="stylesheet" type="text/css" href="css/base-min.css" >
+    <link rel="stylesheet" type="text/css" href="css/layout-core.css" >
+    <style type="text/css">
+    #doc {
+        margin: auto;
+    }
+    .yui-layout-unit-top {
+        background: #EEE;
+    }
+    .yui-layout-unit-center {
+        background: #DDD;
+    }
+    .yui-layout-unit-left {
+        background: #AAA;
+    }
+    .yui-layout-unit-bottom {
+        background: #EEE;
+    }
+    </style>
+    <script type="text/javascript" src="js/yahoo-dom-event.js"></script>
+    <script type="text/javascript" src="js/element-beta-min.js"></script>
+    <script type="text/javascript" src="js/selector-beta-min.js"></script>
+    <script type="text/javascript" src="js/layout-min.js"></script>
+    <script type="text/javascript">
+    var Dom = YAHOO.util.Dom,
+        Event = YAHOO.util.Event;
+
+    Event.onDOMReady(function() {
+        var layout = new YAHOO.widget.Layout( 'doc', {
+            height: Dom.getViewportHeight(),
+            minHeight: 300,
+            width: 750,
+            units: [
+                { position: 'top',    body: 'top',    height: 50 },
+                { position: 'bottom', body: 'bottom', height: 50 },
+                { position: 'left',   body: 'left',   width: 200 },
+                { position: 'center', body: 'center'             }
+            ]
+        });
+        layout.on( 'beforeResize', function() {
+            Dom.setStyle( 'doc', 'height', Dom.getViewportHeight() + 'px' );
+        });
+        layout.render();
+        Event.on( window, 'resize', layout.resize, layout, true );
+    });
+    </script>
+</head>
+<body>
+<div id="doc"></div>
+<div id="top">
+    <h1>header</h1>
+</div>
+<div id="center">
+    <p>center</p>
+</div>
+<div id="left">
+    <p>left</p>
+</div>
+<div id="bottom">
+    <p>footer</p>
+</div>
+</body>
+</html>

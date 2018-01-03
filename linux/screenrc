@@ -1,0 +1,25 @@
+#shelltitle "$ |bash"
+shelltitle ""
+hardstatus alwayslastline "%`%-w%{=b bw}%n %t%{-}%+w"
+bind s
+startup_message off
+autodetach on
+defscrollback 5120
+
+## 256 color
+attrcolor b ".I"
+termcapinfo xterm* "Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm"
+defbce "on"
+term xterm-256color
+
+## compiling 256color screen
+# http://d.hatena.ne.jp/oppara/20110212/p1
+# % git clone git://git.savannah.gnu.org/screen.git screen.git
+# % cd screen.git/
+# % ./autogen.sh 
+# % ./configure --enable-locale \
+#    --enable-telnet \
+#    --enable-colors256 \
+#    --enable-rxvt_osc \
+#    --prefix=/usr/local
+# % sudo make && sudo make install

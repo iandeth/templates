@@ -1,0 +1,35 @@
+PS1='[\u@\h \W]\$ '
+# for screen auto window title = command name
+#PS1='\033k\033\\[\u@\h \W]\$ '
+alias ll='ls -Alh --time-style=iso'
+alias lm='ls -1G'
+# alias lm='ls -alhG'  # for Mac OS X
+alias screen='screen -U -D -RR'
+if tty -s; then
+    stty stop undef
+    stty start undef
+fi
+export HISTSIZE=10000
+export HISTCONTROL=ignoreboth
+export HISTIGNORE="exit:screen:[bf]g:cd:history:history *"
+export IGNOREEOF=10
+export EDITOR=vim
+export TERM="xterm-color"
+
+# for recursive grep without svn conf files
+#alias nosvn_grep='grep -R --exclude="*\.svn-base"'
+function nosvn_grep {
+    find $2 -path '*/.svn' -prune -or -print | xargs grep -n "$1"
+}
+function nosvn_find {
+    find $1 -path '*/.svn' -prune -or -name $2 $3
+}
+
+# for history sharing over multiple shells
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend

@@ -1,0 +1,180 @@
+#doc, #doc2, #doc3, #doc4, #doc5, #doc6 {
+    background: #FFF;
+    border: 1px solid #CCC;
+    /*padding: 10px 20px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a {
+    color: #A46702;
+    text-decoration: none;
+    /* border-bottom: 1px dashed #A46702; */
+}
+a:hover {
+    background: #FCDD74;
+}
+#hd, #bd, #ft {
+    font-size: 123.1%;
+    font-family: verdana;
+    line-height: 140%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#hd {
+    margin-top: 10px;
+}
+#hd .main {
+    margin: 0 0 20px 0;
+    border: 3px solid #DDD;
+    padding: 20px;
+    background: #CCC;
+}
+#hd .logo {
+    text-align: right;
+}
+#hd a {
+    background: none;
+    color: #FFF;
+}
+#hd h1 {
+    margin: 0;
+    font-size: 1.6em;
+}
+#hd p {
+    font-size:0.8em;
+    margin: 0;
+}
+
+#bd .cont h2 {
+    margin: 0 0 10px 0;
+    padding: 0 0 2px 0;
+    border-bottom: 1px solid #333;
+}
+#bd .cont h3 {
+    margin: 0 0 10px 0;
+    padding: 0 0 0 5px;
+    border-left: 5px solid #333;
+}
+#bd .cont p {
+    margin: 1em 0;
+    font-size: 0.9em;
+}
+#bd .cont .breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+#bd .cont div.sample {
+    padding: 20px;
+    margin: 20px;
+    background-color: #FCE083;
+}
+#bd .cont dl div.sample {
+    margin: 10px 10px;
+    background-color: #FCE083;
+}
+#bd .cont pre {
+    font-size: 0.8em;
+    padding : 10px;
+    margin: 20px;
+    background-color: #DDD;
+    font-family: monospace;
+    overflow: auto;
+}
+* html #bd .cont pre {
+    overflow: hidden;
+    width: 88%;
+}
+#bd .cont img.bordered {
+    padding: 5px;
+    border: 1px solid #CCC;
+}
+#bd .cont .back-to-top {
+    text-align: right;
+    font-size: 0.7em;
+    margin-bottom: 15px;
+}
+#bd .cont .to-desc {
+    font-weight: bold;
+}
+#bd .cont table.desc {
+    border: 1px solid #BBB;
+    line-height: 1.5em;
+    font-size: 0.9em;
+    margin: 10px 40px 10px 40px;
+    width: 80%;
+    border-collapse: collapse;
+}
+#bd .cont table.desc td {
+    border: none;
+    vertical-align: top;
+}
+#bd .cont table.desc td.term {
+    background: #DDD;
+}
+#bd .cont ul, #bd .cont ol {
+    font-size: 0.9em;
+}
+#bd .cont dl {
+    font-size: 0.9em;
+    margin: 20px;
+}
+#bd .cont dt {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+#bd .cont dd {
+    margin-bottom: 20px;
+}
+#bd .navi h3 {
+    color: #FFF;
+    background: #BBB;
+    border: 3px solid #DDD;
+    margin: 20px 0 10px 0;
+    padding: 5px;
+    font-size: 0.8em;
+}
+#bd .navi p {
+    font-size: 0.8em;
+    color: #666;
+}
+#bd .navi ul {
+    font-size: 0.8em;
+    margin: 0 10px 10px 20px;
+    padding: 0;
+}
+#bd .navi ul.nobullet {
+    margin-left: 10px;
+}
+#bd .navi ul.nobullet li {
+    list-style-type: none;
+}
+#bd .navi li {
+    margin-bottom: 10px;
+}
+
+#ft {
+    font-size: 0.9em;
+    border-top: 1px solid #333;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #999;
+}
+#ft .inner {
+    padding: 5px 0;
+}
+#ft p {
+    text-align: right;
+    margin: 0;
+}
+
+
+#bd .cont div.sample span.lbl {
+    display: block;
+    width: 100px;
+    float: left;
+}
+#bd .cont div.sample select {
+    width: 240px;
+}

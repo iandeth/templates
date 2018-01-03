@@ -1,0 +1,232 @@
+set nocompatible
+set fileformat=unix
+set encoding=utf-8
+set termencoding=utf-8
+set fencs=utf-8,euc-jp,sjis,iso-2022-jp,cp932
+set fileformats=unix,dos,mac
+
+" number of spaces displayed for hard <Tab> char.
+set tabstop=4
+" use N spaces instead of hard <Tab> char. when it reachs multiple of tabstop
+" spaces, it auto converts to <Tab> s.
+set softtabstop=4
+" expand all newly inserted <Tab> chars to softtabstop spaces
+set expandtab
+"set noexpandtab
+" make <Tab> work as shiftwidth indention.
+" can delete shiftwidth spaces with one <BS>, even with expandtab mode
+set smarttab
+" how many spaces to add/remove when indent command (>, >>, <, <<) is used
+set shiftwidth=4
+
+" hilight current line
+set cursorline
+
+"set textwidth=78
+"set wrap
+"set linebreak
+set backspace=indent,eol,start
+set whichwrap=b,s,<,>,[,]
+
+" display tab chars - define format
+set listchars=tab:>-
+" diaplay tab chars - enabling
+set list
+
+set history=9999
+"set ruler
+"set number
+set showcmd
+set showmode
+colorscheme railscasts
+"colorscheme molokai
+
+" highlight matching parens on inserting the other
+set showmatch
+" disable auto highlighting matching parens on cursor-over
+let loaded_matchparen = 1
+
+filetype plugin indent on
+syntax on
+set nobackup
+set nohlsearch
+
+" c style block indent
+set autoindent
+set smartindent
+" comments will also be indented
+inoremap # X#
+
+" stop at last search hit, don't go back to first hit
+set nowrapscan
+
+" search ignore case, not if uppercase specified
+" /word  => word, Word, WORD
+" /Word  => Word
+set ignorecase
+set smartcase
+
+" able to move through buffers without saving changes
+set hidden
+
+" vertical split window on right side - eg) :vert help vert
+set splitright
+
+" display list on command completion
+" but disables right arrow, instead use down arrow
+"set wildmenu
+" alternate version, which you can still use right arrow.
+set wildmode=list:full
+
+" allow recursive directory search with [ :find ] command
+set path+=**
+
+" UTF-8 zenkaku shikaku japanese fixture
+set ambiwidth=double
+
+" auto set fold by indent level, but disable folding by default
+" type 'zi' to enable folding
+set foldmethod=indent
+set nofoldenable
+
+" for moving around buffers
+nnoremap <C-n> :bn<LF>
+nnoremap <C-p> :bp<LF>
+" for moving around Tab Page
+nnoremap gn gt
+nnoremap gp gT
+" for moving around multi window
+" <C-l> is for screen redraw, but can be altered with [ :redraw ]
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+" file explorer in tree view
+let g:netrw_liststyle = 3
+" do not show swap file in explorer list
+let g:netrw_list_hide= '.*\.(swp|svn)$'
+
+" rich status line information
+set laststatus=2
+set statusline=[%n]\ %f\ \ %y%{GetStatusEx()}\ %m%h%r=%l/%L,%c%V\ %P
+function! GetStatusEx()
+    let str = &fileformat
+    if has("multi_byte") && &fileencoding != ""
+        let str = &fileencoding . ":" . str
+    endif
+    let str = "[" . str . "]"
+    return str
+endfunction
+
+" for 256color terminals
+if 200 < &t_Co || &term ==# 'screen-bce' || &term ==# 'screen'
+    set t_Co=256
+endif
+
+" for Tab Page
+hi! link TabLine TabLineFill
+
+" global settings for plugin option
+let g:my_ctags_path = 'ctags'
+"let g:my_ctags_path = '~/Library/Ctags/bin/ctags'
+let g:my_exclude_dir_pattern = '^\.\w\+'
+let g:my_exclude_file_pattern = '*\.min\.*'
+
+
+" for pathogen
+call pathogen#infect()
+
+
+" for Buffer Explorer plugin
+let g:bufExplorerDefaultHelp=0
+let g:bufExplorerShowRelativePath=1
+let g:bufExplorerSplitOutPathName=1
+nnoremap <Leader>ls :BufExplorer<CR> 
+
+
+" for MiniBufExplorer plugin
+" disable it
+"let loaded_minibufexplorer = 1
+" toggle with \ls
+"nnoremap <Leader>ls :TMiniBufExplorer<CR> 
+"" move around windows with CTRL-H/J/K/L
+"let g:miniBufExplMapWindowNavVim = 1
+""let g:miniBufExplMapWindowNavArrows = 1
+""let g:miniBufExplMapCTabSwitchBufs = 1
+""let g:miniBufExplMapCTabSwitchWindows = 1 
+"" for display coloring
+"hi link MBENormal         None
+"hi link MBEChanged        None
+"hi link MBEVisibleNormal  ModeMsg
+"hi link MBEVisibleChanged ModeMsg
+
+
+" for taglist plugin
+let Tlist_Ctags_Cmd = my_ctags_path
+" no white space in tag list
+"let Tlist_Compact_Format = 1
+" exit vim if only tag list is left
+let Tlist_Exit_OnlyWindow = 1
+" show only current window items, fold others
+"let Tlist_File_Fold_Auto_Close = 1
+" always update tag list in background
+let Tlist_Process_File_Always = 1
+" close taglist on selection
+let Tlist_Close_On_Select = 1
+" gain focus on open
+let Tlist_GainFocus_On_ToggleOpen = 1
+" keyborad shortcut
+nnoremap <Leader>tl :TlistToggle<CR>
+
+
+" for Tag Explorer plugin
+"nnoremap <Leader>te :TagExplorer<CR>
+"let TE_Ctags_Path = my_ctags_path
+"let TE_Exclude_Dir_Pattern = my_exclude_dir_pattern
+"let TE_Exclude_File_Pattern = my_exclude_file_pattern
+"let TE_Adjust_Winwidth = 0
+
+
+" for TagsParser plugin
+"let g:TagsParserNoResize = 0
+"let g:TagsParserDirExcludePattern = my_exclude_dir_pattern
+"let g:TagsParserFileExcludePattern = my_exclude_file_pattern
+
+
+" for Source Explorer plugin
+"nnoremap <F8> :SrcExplToggle<CR>
+"let g:SrcExpl_winHeight = 8
+"let g:SrcExpl_refreshTime = 100
+"let g:SrcExpl_jumpKey = "<ENTER>"
+"let g:SrcExpl_goBackKey = "<SPACE>"
+"let g:SrcExpl_pluginList = [
+"    \ "__Tag_List__",
+"    \ "_NERD_tree_",
+"    \ "Source_Explorer"
+"\ ]
+"let g:SrcExpl_searchLocalDef = 1
+"let g:SrcExpl_isUpdateTags = 1
+"let g:SrcExpl_updateTagsCmd = "ctags -R *"
+
+
+" for GVIM
+"autocmd GUIEnter * winpos 0 0
+""autocmd GUIEnter * winsize 85 9999
+"winpos 0 0
+"winsize 85 9999
+"set guifont=Osaka－等幅:w6:h12
+"chdir $HOME\My Documents\My Vim Files\
+
+
+" use ack
+set grepprg=ack
+
+
+" for rails vim
+command -bar -nargs=1 OpenURL :!open -a safari <args>
+"let g:rails_abbreviations = 0
+
+
+" for NERDtree
+"autocmd vimenter * if !argc() | NERDTree | endif
